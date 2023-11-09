@@ -102,7 +102,7 @@ hideInToc: false
 
 
 - 📜 **No TLS Certificate** - no need to have a domain name
-- 🖥️ **Browser** - browser-to-browser compatible
+- 💻 **Browser** - browser-to-browser compatible
 
 <br>
 <br>
@@ -115,8 +115,8 @@ transition: slide-up
 
 # Why _Browser_ Rust?
 
-- 🛠️ **Single Language Stack** - code reuse, no context switching
-- 🤹 **Strongly typed** - easier to manage expanding code base
+- 1️⃣ **Single Language Stack** - code reuse, no context switching
+- ⚒️ **Strongly typed** - easier to manage expanding code base
 - ⚙️  **Wasm native** - Rust is the most capable language for Wasm
 - 📈 **Growing front-end list** - [Leptos](https://www.leptos.dev/), [Yew](https://yew.rs/), [Dioxus](https://dioxuslabs.com/), [Sycamore](https://sycamore-rs.netlify.app/), [Egui](https://github.com/emilk/egui)
 
@@ -132,16 +132,27 @@ Here is another comment.
 level: 1
 ---
 
-# Future States
+# Tale of 3 WebAssemblys
 
-`rust-libp2p-webrtc` uses `web-sys` because it has bindings for WebRTC I/O.
+|     |     |     |
+| --- | --- | --- |
+| 1. | `wasm-bindgen` | builtin `web-sys` access (rust-libp2p-webrtc, webtransport) |
+| 2. | `wasm interface types` | runs sandboxed anywhere, wasi/manual IO |
+| 3. | `wick` | enables async streams in/out of wasm |
 
-But not all `libp2p` is I/O!
+<br><br>
+
+## Since not all `libp2p` is I/O, we can ALSO use #2, #3!
+
+---
+level: 1
+---
+
 
 ## Build once, run in any libp2p examples:
 
-- 📽️ **Video over Gossipsub** - ffmpeg
-- 🧾 **ZK Proofs** - build once, prove anywhere
+- 🎥 **Video over Gossipsub** - ffmpeg
+- 🔏 **ZK Proofs** - build once, prove anywhere
 - 👜 **Wallets** - libp2p connected/backed up wallets
 
 ---
