@@ -49,7 +49,9 @@ hideInToc: true
 </div>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+- Welcome to Istanbul! 
+- Thanks to Protocol Labs for having me here
+- I'm going to talk about the work we did bringing wasm WebRTC to rust-libp2p in the browser, and a bit about more possibilites for Wasm adjacent to libp2p. 
 -->
 
 <style>
@@ -66,6 +68,12 @@ hideInToc: true
 # Table of contents
 
 <Toc minDepth="1" maxDepth="1"></Toc>
+
+<!-- 
+All these slides are available on Github in my repo, which we will link on the Libp2p day page. I've done my best to hyperlink the references so you can learn more about each topic.
+
+I'm not sure what everyone's level of knowledge is with rust or webrtc or even libp2p, so I'll try my best not to insult anyone while at the same time not go over anyone's head.
+-->
 
 ---
 ---
@@ -94,6 +102,8 @@ hideInToc: true
 
 * We need to be able to onboard people in the browser!
 
+<!-- A bit of my background for context so you know where I'm coming from. I'm a community member, I don't work for, well any Web3 company because I wanted my R&D to be unbiased by hype until I found a technology that works. I did a full career as a Navy Engineering Officer which actually led me to the Web3 -- I moved a lot, had trouble keeping up with account changes, which led me to researching a raft of web3 tech. In the end, all roads led back to IPFS style technology which leads us here. -->
+
 ---
 layout: image-right
 image: ./webrtc.jpeg
@@ -101,11 +111,25 @@ image: ./webrtc.jpeg
 
 # Why WebRTC?
 
+### Goals
+
+| **Outcome** | **Criteria** |
+| --- | --- |
+| Independence | Run own node, even at home |
+| Adoption | Works in the browser |
+
+---
+layout: image-right
+image: ./webrtc.jpeg
+---
+
+# Why WebRTC?
 
 - 📜 **No TLS Certificate** - no need to have a domain name
 - 💻 **Browser** - browser-to-browser compatible
+- 🔟 **Data Channel** - Send bytes instead of audio/video
 
-<div class="border rounded-xl text-center shadow-lg p-2">
+<div class="border rounded-xl text-center shadow-lg p-1">
 
 ```mermaid {scale: 0.9}
 graph
@@ -114,10 +138,12 @@ Home ---|WebRTC| D[Browser]
 Home ---|WebRTC| E[Browser]
 ```
 
+<!-- So why WebRTC? There are many transport options put there, many more robust. But one of my founding principles is that users should be able to run their own node, even at home without TLS from domain name. The other is we must be able to initially launch most of the stack in the browser for easy onboarding. The only transport that allows bo -->
+
 </div>
 
-<Arrow x1="220" y1="460" x2="270" y2="460" />
-<Arrow x1="270" y1="460" x2="220" y2="460" />
+<Arrow x1="220" y1="520" x2="270" y2="520" />
+<Arrow x1="270" y1="520" x2="220" y2="520" />
 
 More about [WebRTC](https://webrtc.org/)
 
@@ -132,14 +158,14 @@ transition: slide-up
 
 # Why _Browser_ Rust?
 
-- 1️⃣ **Single Language Stack** - code reuse, no context switching
+- 1️⃣ **Single Language Stack** - code reuse, less context switching
 - ⚒️ **Strongly typed** - easier to manage expanding code base
 - ⚙️  **Wasm native** - Rust is the most capable language for Wasm
 - 📈 **Growing front-end list** - [Leptos](https://www.leptos.dev/), [Yew](https://yew.rs/), [Dioxus](https://dioxuslabs.com/), [Sycamore](https://sycamore-rs.netlify.app/), [Egui](https://github.com/emilk/egui)
 - 📚 **Crates** - Many cryto libraries available in Rust
 
 
-|  | ☕  | 🦀 | 
+|  | ☕  | ❤️ | 
 | - | --- | --- |
 | Browser Crates Use | JS bindgen | Rust |
 | Networking | JS | Rust* |
@@ -149,7 +175,7 @@ transition: slide-up
 <br>
 
 <!--
-Isn't Rust a systems level language?
+Isn't Rust a systems level language? That's like saying JavaScript is just for making a confetti and mouse sparkle trail.
 -->
 
 ---
@@ -163,7 +189,7 @@ level: 1
 | 1. | [`wasm-bindgen`](https://rustwasm.github.io/docs/wasm-bindgen/introduction.html) | builtin: [`web-sys`](https://rustwasm.github.io/wasm-bindgen/examples/dom.html) & [`js-sys`](https://docs.rs/js-sys/latest/js_sys/) | rust-libp2p webrtc, webtransport |
 | 2. | [`wasm interface types`](https://github.com/bytecodealliance/wit-bindgen) | WASI & user defined | runs sandboxed sync code "anywhere" |
 | 3. | [`wasm-rs`](https://github.com/WasmRS/wasmrs-rust) / [`wick`](https://candle.dev/docs/wick/) | async reactive streams | Streaming (Video over Gossipsub?) |
-| 4. | [`ipvm`]()
+| 4. | [`ipvm`]() | TBD | TBD |
 
 <br><br>
 
