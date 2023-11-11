@@ -119,6 +119,12 @@ image: ./webrtc.jpeg
 | Adoption | Works in the browser |
 
 ---
+
+# In other words
+
+<Tweet id="1634225020594528258" scale="1.2" />
+
+---
 layout: image-right
 image: ./webrtc.jpeg
 ---
@@ -211,6 +217,10 @@ Doesn't this open users up to data exfiltration?!
 - 🎁 **Networking** - Can't be sandboxed
 - ✔️ **Everything else** - Could be sandboxed
 
+- 🚫 **Sans-IO** - Required for this approach
+
+- 🚫 **Sans-UI** - Helps with core code re-use
+
 <br><br>
 <div class="text-xs">
 Source: https://twitter.com/kiyov09/status/1721599368099152193
@@ -222,16 +232,19 @@ level: 1
 
 # Varieties of WebAssembly
 
+Lab Week is all about sharing experiments, right?
+
 |     | Name| IO Bindings    | Usage |
 | --- | --- | --- | --- |
 | 1. | [`wasm-bindgen`](https://rustwasm.github.io/docs/wasm-bindgen/introduction.html) | builtin: [`web-sys`](https://rustwasm.github.io/wasm-bindgen/examples/dom.html) & [`js-sys`](https://docs.rs/js-sys/latest/js_sys/) | rust-libp2p webrtc, webtransport |
 | 2. | [`wasm interface types`](https://github.com/bytecodealliance/wit-bindgen) | WASI & user defined | runs sandboxed sync code "anywhere" |
 | 3. | [`wasm-rs`](https://github.com/WasmRS/wasmrs-rust) / [`wick`](https://candle.dev/docs/wick/) | async reactive streams | Streaming (Video over Gossipsub?) |
-| 4. | [`ipvm`]() | TBD | TBD |
+| 4. | [`wurbo`](https://github.com/DougAnderson444/wurbo) | event listener | Sans-UI architecture |
+| 5. | [`ipvm`]() | func args | func IO |
 
-<br><br>
+<br>
 
-Since not all `libp2p` is I/O, we can ALSO use #2, #3 (maybe #4?)!
+Since not all `libp2p` is I/O, we can ALSO use beyond #1
 
 ---
 level: 1
@@ -270,6 +283,34 @@ Some \[unimplemented\] ideas:
 - 👜 **Wallets** - libp2p connected/backed up wallets
 
 ## Imagine being able to pull functionality off the shelf and plug it into your lib2p app!
+
+---
+
+# Do I need to learn Rust?
+
+
+<div class="flex flex-row w-full">
+
+<div class="flex-grow text-left">
+
+Nope! But it helps.
+
+Wasm components can be run in their host environment without knowing anything about Rust. 
+
+<br />
+Building wasm components, the answer changes to ~yes~ more or less but also:
+
+- Rust
+- TinyGo
+- AssemblyScript (TypeScript flavor)
+- C & C++
+ 
+</div>
+
+<div class="flex text-center justify-center mx-16">
+<Tweet id="1642331102407688192" scale="0.9" />
+</div>
+</div>
 
 ---
 layout: center
