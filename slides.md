@@ -316,9 +316,9 @@ Building wasm components, the answer changes to ~yes~ more or less but also:
 layout: center
 ---
 
-# A New, Networked, Composable Web
+# Composable Libp2p Apps
 
-Time to rethink how we build next-gen of apps.
+Time to rethink how we build next-gen of libp2p apps.
 
 ---
 layout: center
