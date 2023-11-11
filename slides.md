@@ -95,7 +95,7 @@ I'm not sure what everyone's level of knowledge is with rust or webrtc or even l
     checkout "dweb"
     commit id: "IPLD/DAG"
     commit id: "libp2p"
-    branch "languages"
+    branch "tools"
     commit id: "Rust"
     commit id: "Wasm"
 ```
@@ -109,13 +109,13 @@ layout: image-right
 image: ./webrtc.jpeg
 ---
 
-# Why WebRTC?
+# North Star Goals
 
-### Goals
+<br>
 
 | **Outcome** | **Criteria** |
 | --- | --- |
-| Independence | Run own node, even at home |
+| Independence | Run own node, even at home or mobile |
 | Adoption | Works in the browser |
 
 ---
@@ -125,9 +125,9 @@ image: ./webrtc.jpeg
 
 # Why WebRTC?
 
-- 📜 **No TLS Certificate** - no need to have a domain name
-- 💻 **Browser** - browser-to-browser compatible
-- 🔟 **Data Channel** - Send bytes instead of audio/video
+- 📜 **No TLS Certificate** - no need to have a domain name ✔️ home
+- 💻 **Browser** - browser-to-browser compatible ✔️ usage / adoption
+- 🔟 **Data Channel** - Send bytes instead of audio/video ✔️
 
 <div class="border rounded-xl text-center shadow-lg p-1">
 
@@ -156,12 +156,12 @@ When I first experimented with libp2p I discovered that not all Transports are c
 transition: slide-up
 ---
 
-# Why _Browser_ Rust?
+# Why _Browser_ Rust/Wasm?
 
 - 1️⃣ **Single Language Stack** - code reuse, less context switching
 - ⚒️ **Strongly typed** - easier to manage expanding code base
 - ⚙️  **Wasm native** - Rust is the most capable language for Wasm
-- 📈 **Growing front-end list** - [Leptos](https://www.leptos.dev/), [Yew](https://yew.rs/), [Dioxus](https://dioxuslabs.com/), [Sycamore](https://sycamore-rs.netlify.app/), [Egui](https://github.com/emilk/egui)
+- 📈 **Growing Ecosystem** - [Leptos](https://www.leptos.dev/), [Yew](https://yew.rs/), [Dioxus](https://dioxuslabs.com/), [Sycamore](https://sycamore-rs.netlify.app/), [Egui](https://github.com/emilk/egui) + +
 - 📚 **Crates** - Many cryto libraries available in Rust
 
 
@@ -179,6 +179,44 @@ Isn't Rust a systems level language? That's like saying JavaScript is just for m
 -->
 
 ---
+
+# Next Steps
+
+We've got browser-server WebRTC in Rust, but still need browser-browser implemented:
+
+See [#4389](https://github.com/libp2p/rust-libp2p/issues/4389)
+
+
+```mermaid {scale: 0.9}
+graph
+B[Network] ---|WebRTC| Home
+Home ---|WebRTC| D[Browser]
+Home ---|WebRTC| E[Browser]
+```
+
+<!-- We needed the browser-server part first, upon which the B-B can be done. -->
+
+<Arrow v-click="1" x1="125" y1="400" x2="175" y2="400" />
+<Arrow v-click="1" x1="175" y1="400" x2="125" y2="400" />
+
+---
+layout: image-right
+image: ./scary-crab.jpeg
+---
+
+# Wait?! Aren't networked Wasm apps scary?
+
+Doesn't this open users up to data exfiltration?!
+
+- 🎁 **Networking** - Can't be sandboxed
+- ✔️ **Everything else** - Could be sandboxed
+
+<br><br>
+<div class="text-xs">
+Source: https://twitter.com/kiyov09/status/1721599368099152193
+</div>
+
+---
 level: 1
 ---
 
@@ -193,7 +231,7 @@ level: 1
 
 <br><br>
 
-Since not all `libp2p` is I/O, we can ALSO use #2, #3!
+Since not all `libp2p` is I/O, we can ALSO use #2, #3 (maybe #4?)!
 
 ---
 level: 1
@@ -206,7 +244,7 @@ level: 1
 
 ```mermaid {scale: 1}
 graph TD
-A[crates] --> B["Wasm Components \n (IPNS, Request/Response, Video over Gossipsub, etc)" ]
+A[crates] --> B["Sandboxed Wasm Components \n (IPNS, Request/Response, Video over Gossipsub, etc)" ]
 B --> C[web]
 B --> D[Go]
 B --> E[Node]
@@ -232,6 +270,14 @@ Some \[unimplemented\] ideas:
 - 👜 **Wallets** - libp2p connected/backed up wallets
 
 ## Imagine being able to pull functionality off the shelf and plug it into your lib2p app!
+
+---
+layout: center
+---
+
+# A New, Networked, Composable Web
+
+Time to rethink how we build next-gen of apps.
 
 ---
 layout: center
