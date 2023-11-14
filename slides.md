@@ -271,6 +271,19 @@ C & D & E & F & Next --> G[libp2p]
     <Tweet id="1721877770681057737" scale="0.8" />
 </div>
 </div>
+---
+
+# More Detailed:
+
+<img
+  class="opacity-100"
+  src="libp2p-wasm-sans.svg"
+  alt=""
+/>
+
+<style>
+h1 + p { opacity: 1 }
+</style>
 
 ---
 
