@@ -325,18 +325,12 @@ Building wasm components, the answer changes to ~yes~ more or less but also:
 
 ---
 layout: center
----
-
-# Composable Libp2p Apps
-
-Time to rethink how we build next-gen of libp2p apps.
-
----
-layout: center
 class: text-center
 ---
 
-# Let's Build Networked Composable Web 
+# Let's Build Networked, Composable Libp2p Apps 
+
+<br>
 
 [https://github.com/DougAnderson444](https://github.com/DougAnderson444) 
 
