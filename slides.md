@@ -273,11 +273,9 @@ C & D & E & F & Next --> G[libp2p]
 </div>
 ---
 
-# More Detailed:
-
 <img
   class="opacity-100"
-  src="libp2p-wasm-sans.svg"
+  src="libp2p-wasm-sans.png"
   alt=""
 />
 
