@@ -80,7 +80,7 @@ I'm not sure what everyone's level of knowledge is with rust or webrtc or even l
 
 # Background
 
-### In search of decentralized data pointers
+### In search of portable, decentralized data pointers
 
 ```mermaid {theme: 'base', scale: 1.2}
   gitGraph LR:
@@ -168,7 +168,7 @@ transition: slide-up
 - ⚒️ **Strongly typed** - easier to manage expanding code base
 - ⚙️  **Wasm native** - Rust is the most capable language for Wasm
 - 📈 **Growing Ecosystem** - [Leptos](https://www.leptos.dev/), [Yew](https://yew.rs/), [Dioxus](https://dioxuslabs.com/), [Sycamore](https://sycamore-rs.netlify.app/), [Egui](https://github.com/emilk/egui) + +
-- 📚 **Crates** - Many cryto libraries available in Rust
+- 📚 **Crates** - Many crypto libraries available in Rust at crates.io / github.com
 
 
 |  | ☕  | ❤️ | 
