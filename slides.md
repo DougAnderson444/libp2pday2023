@@ -277,7 +277,6 @@ layout: image
 image: ./libp2p-wasm-sans.png
 ---
 
-
 <style>
 h1 + p { opacity: 1 }
 </style>
